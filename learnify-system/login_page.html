@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learnify Login</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#f4f6fb;
+}
+
+.container{
+    width:900px;
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    display:flex;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+.left{
+    width:45%;
+    background:#2F2A8C;
+    color:white;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+}
+
+.left img{
+    width:180px;
+    margin-bottom:20px;
+}
+
+.left h1{
+    font-size:42px;
+}
+
+.left p{
+    text-align:center;
+    margin-top:15px;
+}
+
+.right{
+    width:55%;
+    padding:50px;
+}
+
+.right h2{
+    margin-bottom:30px;
+    color:#222;
+}
+
+.form-group{
+    margin-bottom:20px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:6px;
+    font-weight:600;
+}
+
+.form-group input,
+.form-group select{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:10px;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    background:#2F2A8C;
+    color:white;
+    font-size:16px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#241f73;
+}
+
+.error{
+    color:red;
+    margin-top:10px;
+}
+
+.footer{
+    text-align:center;
+    margin-top:20px;
+    color:#666;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="left">
+
+<!-- Replace with your logo -->
+<img src="LEARNIFY_LOGO.png" alt="Learnify">
+
+<h1>Learnify</h1>
+
+<p>
+Smart Interactive Learning System
+</p>
+
+</div>
+
+<div class="right">
+
+<h2>Login</h2>
+
+<div class="form-group">
+<label>Email</label>
+<input type="email" id="email">
+</div>
+
+<div class="form-group">
+<label>Password</label>
+<input type="password" id="password">
+</div>
+
+<div class="form-group">
+<label>Role</label>
+<select id="role">
+<option value="">Select Role</option>
+<option value="student">Student</option>
+<option value="instructor">Instructor</option>
+<option value="admin">Admin</option>
+</select>
+</div>
+
+<button onclick="login()">
+Login
+</button>
+
+<p class="error" id="error"></p>
+
+<div class="footer">
+Learnify © 2026
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+/*
+Demo Accounts
+*/
+
+function login(){
+
+let email = document.getElementById("email").value;
+let password = document.getElementById("password").value;
+let role = document.getElementById("role").value;
+
+let users =
+JSON.parse(localStorage.getItem("users")) || [];
+
+const adminAccount = {
+email:"admin@learnify.com",
+password:"admin123",
+role:"admin"
+};
+
+let foundUser = users.find(user =>
+user.email === email &&
+user.password === password &&
+user.role === role
+);
+
+if(
+email === adminAccount.email &&
+password === adminAccount.password &&
+role === adminAccount.role
+){
+window.location.href="admin_dashboard0.html";
+return;
+}
+
+if(foundUser){
+
+localStorage.setItem(
+"loggedInUser",
+JSON.stringify(foundUser)
+);
+
+if(foundUser.role === "student"){
+window.location.href="student_dashboard0.html";
+}
+
+if(foundUser.role === "instructor"){
+window.location.href="instructor_dashboard0.html";
+}
+
+}else{
+
+document.getElementById("error").innerHTML =
+"Invalid Email or Password";
+
+}
+
+}
+}
+
+</script>
+
+</body>
+</html>

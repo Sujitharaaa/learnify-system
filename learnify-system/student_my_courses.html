@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Courses - LEARNIFY</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    display:flex;
+    min-height:100vh;
+    background:linear-gradient(135deg,#87CEFA,#0b2c6f);
+}
+
+/* SIDEBAR (same as dashboard) */
+.sidebar{
+    width:260px;
+    background:white;
+    padding:25px;
+    box-shadow:0 0 20px rgba(0,0,0,0.1);
+}
+
+.logo{text-align:center;margin-bottom:40px;}
+.logo img{width:180px;}
+
+.menu{list-style:none;}
+.menu li{
+    padding:15px;
+    border-radius:12px;
+    margin-bottom:10px;
+    cursor:pointer;
+    transition:0.3s;
+}
+.menu li:hover,.menu .active{
+    background:#dceeff;
+    color:#0b2c6f;
+    font-weight:bold;
+}
+.menu i{width:30px;}
+
+.logout{
+    margin-top:80px;
+    padding:15px;
+    border-radius:12px;
+    cursor:pointer;
+}
+.logout:hover{background:#ffe5e5;}
+
+/* MAIN */
+.main{
+    flex:1;
+    padding:30px;
+}
+
+.title{
+    color:white;
+    font-size:32px;
+    margin-bottom:20px;
+}
+
+/* COURSES GRID */
+.course-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
+
+.course-card{
+    background:white;
+    padding:20px;
+    border-radius:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.course-card h3{
+    color:#0b2c6f;
+    margin-bottom:10px;
+}
+
+.course-card p{
+    font-size:14px;
+    margin-bottom:10px;
+    color:#444;
+}
+
+.btn{
+    background:#0b2c6f;
+    color:white;
+    padding:10px 15px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+
+    <div class="logo">
+        <img src="LEARNIFY_LOGO.png">
+    </div>
+
+    <ul class="menu">
+        <a href="student_dashboard.html" style="text-decoration:none;color:inherit;"></a>
+        <li><i class="fa-solid fa-house"></i> Dashboard</li>
+        <a href="student_my_courses.html" style="text-decoration:none;color:inherit;"></a>
+        <li class="active"><i class="fa-solid fa-book"></i> My Courses</li>
+        <li><i class="fa-solid fa-file"></i> Course Materials</li>
+        <li><i class="fa-solid fa-clipboard-list"></i> Assignments</li>
+        <li><i class="fa-solid fa-pen"></i> Quizzes</li>
+        <li><i class="fa-solid fa-chart-line"></i> Progress</li>
+        <li><i class="fa-solid fa-user"></i> Profile</li>
+    </ul>
+
+    <div class="logout">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
+    </div>
+
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+    <div class="title">My Assigned Courses</div>
+
+    <div class="course-grid">
+
+        <div class="course-card">
+            <h3>Web Development</h3>
+            <p>HTML, CSS, JavaScript fundamentals</p>
+            <button class="btn">Open Course</button>
+        </div>
+
+        <div class="course-card">
+            <h3>Database Systems</h3>
+            <p>SQL, ERD, relational design</p>
+            <button class="btn">Open Course</button>
+        </div>
+
+        <div class="course-card">
+            <h3>Cyber Security</h3>
+            <p>Basics of security & threats</p>
+            <button class="btn">Open Course</button>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
