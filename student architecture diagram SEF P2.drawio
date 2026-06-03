@@ -1,0 +1,102 @@
+<mxfile host="Electron">
+  <diagram name="Page-1" id="GoGGK1jSwI5chb8Izp8p">
+    <mxGraphModel dx="1484" dy="659" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="UE6-ghMuMkhnPsWEFZMP-1" parent="1" style="html=1;dropTarget=0;whiteSpace=wrap;" value="«Component»&lt;br&gt;&lt;b&gt;Login&lt;/b&gt;" vertex="1">
+          <mxGeometry height="90" width="180" x="200" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="UE6-ghMuMkhnPsWEFZMP-2" parent="UE6-ghMuMkhnPsWEFZMP-1" style="shape=module;jettyWidth=8;jettyHeight=4;" value="" vertex="1">
+          <mxGeometry height="20" relative="1" width="20" x="1" as="geometry">
+            <mxPoint x="-27" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UE6-ghMuMkhnPsWEFZMP-3" parent="1" style="html=1;dropTarget=0;whiteSpace=wrap;" value="«Component»&lt;br&gt;&lt;b&gt;Access Learning Content&lt;/b&gt;" vertex="1">
+          <mxGeometry height="90" width="180" x="-70" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="UE6-ghMuMkhnPsWEFZMP-4" parent="UE6-ghMuMkhnPsWEFZMP-3" style="shape=module;jettyWidth=8;jettyHeight=4;" value="" vertex="1">
+          <mxGeometry height="20" relative="1" width="20" x="1" as="geometry">
+            <mxPoint x="-27" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UE6-ghMuMkhnPsWEFZMP-5" parent="1" style="html=1;dropTarget=0;whiteSpace=wrap;" value="«Component»&lt;br&gt;&lt;b&gt;Student Dashboard&lt;/b&gt;" vertex="1">
+          <mxGeometry height="90" width="180" x="200" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="UE6-ghMuMkhnPsWEFZMP-6" parent="UE6-ghMuMkhnPsWEFZMP-5" style="shape=module;jettyWidth=8;jettyHeight=4;" value="" vertex="1">
+          <mxGeometry height="20" relative="1" width="20" x="1" as="geometry">
+            <mxPoint x="-27" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UE6-ghMuMkhnPsWEFZMP-7" parent="1" style="html=1;dropTarget=0;whiteSpace=wrap;" value="«Component»&lt;br&gt;&lt;b&gt;Attempt Quiz&lt;/b&gt;" vertex="1">
+          <mxGeometry height="90" width="180" x="120" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="UE6-ghMuMkhnPsWEFZMP-8" parent="UE6-ghMuMkhnPsWEFZMP-7" style="shape=module;jettyWidth=8;jettyHeight=4;" value="" vertex="1">
+          <mxGeometry height="20" relative="1" width="20" x="1" as="geometry">
+            <mxPoint x="-27" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UE6-ghMuMkhnPsWEFZMP-9" parent="1" style="html=1;dropTarget=0;whiteSpace=wrap;" value="«Component»&lt;br&gt;&lt;b&gt;View Progress&lt;/b&gt;" vertex="1">
+          <mxGeometry height="90" width="180" x="310" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="UE6-ghMuMkhnPsWEFZMP-10" parent="UE6-ghMuMkhnPsWEFZMP-9" style="shape=module;jettyWidth=8;jettyHeight=4;" value="" vertex="1">
+          <mxGeometry height="20" relative="1" width="20" x="1" as="geometry">
+            <mxPoint x="-27" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UE6-ghMuMkhnPsWEFZMP-11" parent="1" style="html=1;dropTarget=0;whiteSpace=wrap;" value="«Component»&lt;br&gt;&lt;b&gt;View AI Recommendations or Instructor&#39;s Feedback&amp;nbsp;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="90" width="180" x="500" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="UE6-ghMuMkhnPsWEFZMP-12" parent="UE6-ghMuMkhnPsWEFZMP-11" style="shape=module;jettyWidth=8;jettyHeight=4;" value="" vertex="1">
+          <mxGeometry height="20" relative="1" width="20" x="1" as="geometry">
+            <mxPoint x="-27" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UE6-ghMuMkhnPsWEFZMP-15" parent="1" style="html=1;dropTarget=0;whiteSpace=wrap;" value="«Component»&lt;br&gt;&lt;b&gt;Submit Quiz&lt;/b&gt;" vertex="1">
+          <mxGeometry height="90" width="180" x="120" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="UE6-ghMuMkhnPsWEFZMP-16" parent="UE6-ghMuMkhnPsWEFZMP-15" style="shape=module;jettyWidth=8;jettyHeight=4;" value="" vertex="1">
+          <mxGeometry height="20" relative="1" width="20" x="1" as="geometry">
+            <mxPoint x="-27" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UE6-ghMuMkhnPsWEFZMP-17" edge="1" parent="1" source="UE6-ghMuMkhnPsWEFZMP-1" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=block;endFill=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="UE6-ghMuMkhnPsWEFZMP-5" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="280" y="370" as="sourcePoint" />
+            <mxPoint x="440" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UE6-ghMuMkhnPsWEFZMP-18" edge="1" parent="1" source="UE6-ghMuMkhnPsWEFZMP-5" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=block;endFill=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="UE6-ghMuMkhnPsWEFZMP-11" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="280" y="370" as="sourcePoint" />
+            <mxPoint x="440" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UE6-ghMuMkhnPsWEFZMP-19" edge="1" parent="1" source="UE6-ghMuMkhnPsWEFZMP-5" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=block;endFill=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;" target="UE6-ghMuMkhnPsWEFZMP-9" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="280" y="370" as="sourcePoint" />
+            <mxPoint x="440" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UE6-ghMuMkhnPsWEFZMP-20" edge="1" parent="1" source="UE6-ghMuMkhnPsWEFZMP-5" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=block;endFill=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;" target="UE6-ghMuMkhnPsWEFZMP-7" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="280" y="370" as="sourcePoint" />
+            <mxPoint x="440" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UE6-ghMuMkhnPsWEFZMP-21" edge="1" parent="1" source="UE6-ghMuMkhnPsWEFZMP-5" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=block;endFill=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;" target="UE6-ghMuMkhnPsWEFZMP-3" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="280" y="370" as="sourcePoint" />
+            <mxPoint x="440" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UE6-ghMuMkhnPsWEFZMP-22" edge="1" parent="1" source="UE6-ghMuMkhnPsWEFZMP-7" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=block;endFill=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="UE6-ghMuMkhnPsWEFZMP-15" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="150" y="370" as="sourcePoint" />
+            <mxPoint x="310" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
