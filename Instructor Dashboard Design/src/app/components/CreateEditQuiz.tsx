@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Plus, Trash2, Clock, CheckSquare } from 'lucide-react';
+import { Plus, Trash2, Clock, CheckSquare, CheckCircle2 } from 'lucide-react';
 
 interface QuizQuestion {
   id: number;
@@ -38,12 +38,20 @@ export function CreateEditQuiz() {
   const [mode, setMode] = useState<'list' | 'create'>('list');
   const [questions, setQuestions] = useState<QuizQuestion[]>(defaultQuestions);
   const [quizForm, setQuizForm] = useState({ courseCode: 'CSNB4122', title: '', duration: 30, dueDate: '2026-06-15', status: 'Draft' as Quiz['status'] });
-  const [newQ, setNewQ] = useState({ question: '', options: ['', '', '', ''], answer: '', points: 5 });
+  const [newQ, setNewQ] = useState<{ question: string; options: string[]; correctIndex: number | null; points: number }>({
+    question: '',
+    options: ['', '', '', ''],
+    correctIndex: null,
+    points: 5,
+  });
+
+  const newQValid = newQ.question.trim() !== '' && newQ.options.every((o) => o.trim() !== '') && newQ.correctIndex !== null;
 
   function addQuestion() {
-    if (!newQ.question || !newQ.answer) return;
-    setQuestions((prev) => [...prev, { id: Date.now(), ...newQ }]);
-    setNewQ({ question: '', options: ['', '', '', ''], answer: '', points: 5 });
+    if (!newQValid) return;
+    const answer = newQ.options[newQ.correctIndex as number];
+    setQuestions((prev) => [...prev, { id: Date.now(), question: newQ.question, options: newQ.options, answer, points: newQ.points }]);
+    setNewQ({ question: '', options: ['', '', '', ''], correctIndex: null, points: 5 });
   }
 
   function removeQuestion(id: number) {
@@ -113,6 +121,10 @@ export function CreateEditQuiz() {
 
           {/* Questions */}
           <div className="col-span-2 flex flex-col gap-4">
+            <div style={{ fontFamily: 'Arial, sans-serif', fontSize: '11px', fontWeight: 'bold', color: '#6B7280', letterSpacing: '0.08em' }}>
+              QUESTION TYPE: MULTIPLE CHOICE ONLY
+            </div>
+
             {questions.map((q, i) => (
               <div key={q.id} className="bg-white rounded-xl shadow-sm p-5">
                 <div className="flex items-start justify-between mb-2">
@@ -127,6 +139,7 @@ export function CreateEditQuiz() {
                   {q.options.map((opt, oi) => (
                     <div key={oi} className="flex items-center gap-2 px-3 py-1.5 rounded-lg" style={{ backgroundColor: opt === q.answer ? '#E9ECFF' : '#F8F9FF', border: opt === q.answer ? '1px solid #001F91' : '1px solid #E5E7EB' }}>
                       <span style={{ fontFamily: 'Arial, sans-serif', fontSize: '12px', color: opt === q.answer ? '#001F91' : '#374151', fontWeight: opt === q.answer ? 'bold' : 'normal' }}>{String.fromCharCode(65 + oi)}. {opt}</span>
+                      {opt === q.answer && <CheckCircle2 size={12} color="#16A34A" />}
                     </div>
                   ))}
                 </div>
@@ -135,18 +148,46 @@ export function CreateEditQuiz() {
 
             {/* Add question form */}
             <div className="bg-white rounded-xl shadow-sm p-5 border-2 border-dashed" style={{ borderColor: '#001F91' }}>
-              <div style={{ fontFamily: 'Arial, sans-serif', fontWeight: 'bold', fontSize: '13px', color: '#001F91', marginBottom: '12px' }}>ADD NEW QUESTION</div>
+              <div style={{ fontFamily: 'Arial, sans-serif', fontWeight: 'bold', fontSize: '13px', color: '#001F91', marginBottom: '12px' }}>ADD NEW MCQ QUESTION</div>
               <div className="flex flex-col gap-3">
                 <input className="w-full border border-gray-300 rounded-lg px-3 py-2" placeholder="Enter question..." value={newQ.question} onChange={(e) => setNewQ((q) => ({ ...q, question: e.target.value }))} style={{ fontFamily: 'Arial, sans-serif', fontSize: '13px' }} />
                 <div className="grid grid-cols-2 gap-2">
                   {newQ.options.map((opt, oi) => (
-                    <input key={oi} className="border border-gray-300 rounded-lg px-3 py-2" placeholder={`Option ${String.fromCharCode(65 + oi)}`} value={opt} onChange={(e) => setNewQ((q) => { const opts = [...q.options]; opts[oi] = e.target.value; return { ...q, options: opts }; })} style={{ fontFamily: 'Arial, sans-serif', fontSize: '13px' }} />
+                    <div key={oi} className="flex items-center gap-2">
+                      <button
+                        type="button"
+                        onClick={() => setNewQ((q) => ({ ...q, correctIndex: oi }))}
+                        title="Mark as correct answer"
+                        className="flex-shrink-0 w-6 h-6 rounded-full border flex items-center justify-center"
+                        style={{ borderColor: newQ.correctIndex === oi ? '#16A34A' : '#D1D5DB', backgroundColor: newQ.correctIndex === oi ? '#16A34A' : '#FFFFFF' }}
+                      >
+                        {newQ.correctIndex === oi && <CheckCircle2 size={14} color="#FFFFFF" />}
+                      </button>
+                      <input
+                        className="flex-1 border border-gray-300 rounded-lg px-3 py-2"
+                        placeholder={`Option ${String.fromCharCode(65 + oi)}`}
+                        value={opt}
+                        onChange={(e) => setNewQ((q) => {
+                          const opts = [...q.options];
+                          opts[oi] = e.target.value;
+                          return { ...q, options: opts };
+                        })}
+                        style={{ fontFamily: 'Arial, sans-serif', fontSize: '13px' }}
+                      />
+                    </div>
                   ))}
                 </div>
+                <div style={{ fontFamily: 'Arial, sans-serif', fontSize: '11px', color: '#6B7280' }}>
+                  Tap the circle next to the correct option.
+                </div>
                 <div className="flex gap-3">
-                  <input className="flex-1 border border-gray-300 rounded-lg px-3 py-2" placeholder="Correct answer..." value={newQ.answer} onChange={(e) => setNewQ((q) => ({ ...q, answer: e.target.value }))} style={{ fontFamily: 'Arial, sans-serif', fontSize: '13px' }} />
                   <input type="number" className="w-20 border border-gray-300 rounded-lg px-3 py-2" value={newQ.points} onChange={(e) => setNewQ((q) => ({ ...q, points: Number(e.target.value) }))} style={{ fontFamily: 'Arial, sans-serif', fontSize: '13px' }} />
-                  <button onClick={addQuestion} className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-white" style={{ backgroundColor: '#001F91', fontFamily: 'Arial, sans-serif', fontWeight: 'bold', fontSize: '13px' }}>
+                  <button
+                    onClick={addQuestion}
+                    disabled={!newQValid}
+                    className="flex-1 flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg text-white"
+                    style={{ backgroundColor: newQValid ? '#001F91' : '#9CA3AF', fontFamily: 'Arial, sans-serif', fontWeight: 'bold', fontSize: '13px', cursor: newQValid ? 'pointer' : 'not-allowed' }}
+                  >
                     <Plus size={14} /> ADD
                   </button>
                 </div>
@@ -204,4 +245,5 @@ export function CreateEditQuiz() {
       </div>
     </div>
   );
+}
 }
